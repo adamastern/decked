@@ -18,11 +18,22 @@ public enum BannerNotificationStyle{
 
 public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationManager {
     
+    override public class func initialize(){
+        BannerDecoration.appearance().font = UIFont.systemFontOfSize(13.0)
+    }
+    
     public var manager: DecorationManager?
     
     public var style: BannerNotificationStyle!{
         didSet{
             configureForStyle()
+        }
+    }
+    
+    public dynamic var font: UIFont! {
+        didSet{
+            label.font = font
+            layoutSubviews()
         }
     }
     
@@ -33,20 +44,13 @@ public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationMan
         }
     }
     
-    public var font: UIFont?{
-        didSet{
-            label.font = font
-            layoutSubviews()
-        }
-    }
-    
     private let dismissButton = UIButton(type: .System)
     private let label = UILabel()
     private var tapHandler: (() -> Bool)?
     
-    public init(style: BannerNotificationStyle, title: String, onTap:(() -> Bool)?){
+    public init(style: BannerNotificationStyle, title: String, tapHandler:(() -> Bool)?){
         
-        tapHandler = onTap
+        self.tapHandler = tapHandler
         
         super.init(frame: CGRectZero)
         
@@ -73,7 +77,6 @@ public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationMan
     private func setupInitialStyles(style: BannerNotificationStyle, title: String){
         self.style = style
         self.title = title
-        self.font = UIFont.systemFontOfSize(13)
     }
     
     // MARK - layout

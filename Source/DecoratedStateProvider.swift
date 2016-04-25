@@ -8,22 +8,26 @@
 
 import UIKit
 
+public struct DecorationStateProviderInfoKeys{
+    public static let Error = "DecorationStateProviderInfoError"
+}
+
 public protocol DecoratedStateProvider: class {
     
     associatedtype StateType
     
     func providesForDecorated() -> Decorated
     
-    func configureDecorationsForState(state: StateType) -> (top: DecorationConfiguration?, center: DecorationConfiguration?, bottom: DecorationConfiguration?)
+    func configureDecorationsForState(state: StateType, info: [String : Any]?) -> (top: DecorationConfiguration?, center: DecorationConfiguration?, bottom: DecorationConfiguration?)
     
-    func setDecorationState(state: StateType)
+    func setDecorationState(state: StateType, info: [String : Any]?)
     
 }
 
 extension DecoratedStateProvider{
     
-    public func setDecorationState(state: StateType){
-        let states = self.configureDecorationsForState(state)
+    public func setDecorationState(state: StateType, info: [String : Any]?){
+        let states = self.configureDecorationsForState(state, info: info)
         let decorated = self.providesForDecorated()
         if let top = states.top {
             decorated.addDecoration(top.decoration, atPosition: .Top, insets: top.insets)

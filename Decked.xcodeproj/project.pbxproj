@@ -25,6 +25,7 @@
 		E5B9152D1CCDA58400FEDF8E /* DecoratedStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */; };
 		E5B915331CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */; };
 		E5B915351CCDFC9200FEDF8E /* DecorationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915341CCDFC9200FEDF8E /* DecorationConfiguration.swift */; };
+		E5B915381CCE2C8000FEDF8E /* MessageDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915371CCE2C8000FEDF8E /* MessageDecoration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoratedStateProvider.swift; sourceTree = "<group>"; };
 		E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DecoratedStateProvider.swift"; sourceTree = "<group>"; };
 		E5B915341CCDFC9200FEDF8E /* DecorationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorationConfiguration.swift; sourceTree = "<group>"; };
+		E5B915371CCE2C8000FEDF8E /* MessageDecoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDecoration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E58966B31CCCA5EA0000EF72 /* BannerDecoration.swift */,
+				E5B915371CCE2C8000FEDF8E /* MessageDecoration.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				E58966C31CCCA5EA0000EF72 /* LayoutNotificationView.swift in Sources */,
 				E58966C71CCCA5EA0000EF72 /* UIView+Decoration.swift in Sources */,
 				E58966BE1CCCA5EA0000EF72 /* BannerDecoration.swift in Sources */,
+				E5B915381CCE2C8000FEDF8E /* MessageDecoration.swift in Sources */,
 				E58966BF1CCCA5EA0000EF72 /* Decorated.swift in Sources */,
 				E5B915351CCDFC9200FEDF8E /* DecorationConfiguration.swift in Sources */,
 				E58966C51CCCA5EA0000EF72 /* UIScrollView+Decorated.swift in Sources */,
