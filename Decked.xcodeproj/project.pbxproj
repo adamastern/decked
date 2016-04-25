@@ -22,6 +22,8 @@
 		E58966C61CCCA5EA0000EF72 /* UIView+Decorated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58966BB1CCCA5EA0000EF72 /* UIView+Decorated.swift */; };
 		E58966C71CCCA5EA0000EF72 /* UIView+Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58966BC1CCCA5EA0000EF72 /* UIView+Decoration.swift */; };
 		E5B9152A1CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915291CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift */; };
+		E5B9152D1CCDA58400FEDF8E /* DecoratedStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */; };
+		E5B915331CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		E58966BB1CCCA5EA0000EF72 /* UIView+Decorated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Decorated.swift"; sourceTree = "<group>"; };
 		E58966BC1CCCA5EA0000EF72 /* UIView+Decoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Decoration.swift"; sourceTree = "<group>"; };
 		E5B915291CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutNotificationViewTests.swift; sourceTree = "<group>"; };
+		E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoratedStateProvider.swift; sourceTree = "<group>"; };
+		E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DecoratedStateProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,17 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				E523CB631CCC3D1400331590 /* Decked.h */,
-				E58966B41CCCA5EA0000EF72 /* Decorated.swift */,
-				E58966B51CCCA5EA0000EF72 /* Decoration.swift */,
-				E58966B91CCCA5EA0000EF72 /* ManagedDecoration.swift */,
-				E58966B61CCCA5EA0000EF72 /* DecorationAnimationManager.swift */,
-				E58966B71CCCA5EA0000EF72 /* DecorationManager.swift */,
-				E58966BC1CCCA5EA0000EF72 /* UIView+Decoration.swift */,
-				E58966BB1CCCA5EA0000EF72 /* UIView+Decorated.swift */,
-				E58966BA1CCCA5EA0000EF72 /* UIScrollView+Decorated.swift */,
-				E58966B31CCCA5EA0000EF72 /* BannerDecoration.swift */,
-				E58966B21CCCA5EA0000EF72 /* AssociationHelpers.swift */,
-				E58966B81CCCA5EA0000EF72 /* LayoutNotificationView.swift */,
+				E5B9152E1CCDA58F00FEDF8E /* Decoration */,
+				E5B9152F1CCDA59500FEDF8E /* Decorated */,
+				E5B915301CCDA5C500FEDF8E /* State Provider */,
+				E5B915311CCDA5D500FEDF8E /* Helpers */,
 				E523CB641CCC3D1400331590 /* Info.plist */,
 			);
 			path = Source;
@@ -120,6 +117,47 @@
 				E5B915291CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		E5B9152E1CCDA58F00FEDF8E /* Decoration */ = {
+			isa = PBXGroup;
+			children = (
+				E58966B51CCCA5EA0000EF72 /* Decoration.swift */,
+				E58966B91CCCA5EA0000EF72 /* ManagedDecoration.swift */,
+				E58966B71CCCA5EA0000EF72 /* DecorationManager.swift */,
+				E58966BC1CCCA5EA0000EF72 /* UIView+Decoration.swift */,
+				E58966B31CCCA5EA0000EF72 /* BannerDecoration.swift */,
+				E58966B61CCCA5EA0000EF72 /* DecorationAnimationManager.swift */,
+			);
+			name = Decoration;
+			sourceTree = "<group>";
+		};
+		E5B9152F1CCDA59500FEDF8E /* Decorated */ = {
+			isa = PBXGroup;
+			children = (
+				E58966B41CCCA5EA0000EF72 /* Decorated.swift */,
+				E58966BB1CCCA5EA0000EF72 /* UIView+Decorated.swift */,
+				E58966BA1CCCA5EA0000EF72 /* UIScrollView+Decorated.swift */,
+			);
+			name = Decorated;
+			sourceTree = "<group>";
+		};
+		E5B915301CCDA5C500FEDF8E /* State Provider */ = {
+			isa = PBXGroup;
+			children = (
+				E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */,
+				E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */,
+			);
+			name = "State Provider";
+			sourceTree = "<group>";
+		};
+		E5B915311CCDA5D500FEDF8E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E58966B21CCCA5EA0000EF72 /* AssociationHelpers.swift */,
+				E58966B81CCCA5EA0000EF72 /* LayoutNotificationView.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +278,8 @@
 				E58966C01CCCA5EA0000EF72 /* Decoration.swift in Sources */,
 				E58966C21CCCA5EA0000EF72 /* DecorationManager.swift in Sources */,
 				E58966C61CCCA5EA0000EF72 /* UIView+Decorated.swift in Sources */,
+				E5B9152D1CCDA58400FEDF8E /* DecoratedStateProvider.swift in Sources */,
+				E5B915331CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift in Sources */,
 				E58966C41CCCA5EA0000EF72 /* ManagedDecoration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
