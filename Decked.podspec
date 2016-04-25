@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
  
   s.name         = "Decked"
-  s.version      = "0.1"
+  s.version      = "1.0.2"
   s.summary      = "accessorize your UI"
   s.homepage     = "https://basememara.com"
   s.license      = { :type => "MIT", :file => "LICENSE" }
