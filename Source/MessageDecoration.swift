@@ -12,8 +12,7 @@ public class MessageDecoration: UIView {
     
     override public class func initialize(){
         MessageDecoration.appearance().buttonColor = UIButton().tintColor
-        MessageDecoration.appearance().buttonFont = UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)
-        
+        MessageDecoration.appearance().buttonFont = UIFont.systemFontOfSize(13)
         MessageDecoration.appearance().messageTextColor = UIColor.darkGrayColor()
         MessageDecoration.appearance().messageFont = UIFont.systemFontOfSize(15)
     }
@@ -21,6 +20,7 @@ public class MessageDecoration: UIView {
     private let imageView = UIImageView()
     private let messageLabel = UILabel()
     private let button = UIButton(type: .System)
+    private var buttonTapHandler: (() -> ())?
     
     public dynamic var buttonColor: UIColor! {
         didSet {
@@ -49,8 +49,10 @@ public class MessageDecoration: UIView {
         }
     }
     
-    public init(image: UIImage?, message: String, buttonTitle: String, buttonTapHander: (() -> ())?) {
+    public init(image: UIImage?, message: String, buttonTitle: String, buttonTapHandler: (() -> ())?) {
         super.init(frame: CGRectZero)
+        
+        self.buttonTapHandler = buttonTapHandler
         
         addSubview(imageView)
         addSubview(messageLabel)
@@ -59,7 +61,9 @@ public class MessageDecoration: UIView {
         button.contentEdgeInsets = UIEdgeInsetsMake(0, 28, 0, 28)
         button.layer.borderWidth = 1
         button.setTitle(buttonTitle, forState: .Normal)
+        button.addTarget(self, action: #selector(buttonTapped(_:)), forControlEvents: .TouchUpInside)
         
+        messageLabel.textAlignment = .Center
         messageLabel.numberOfLines = 0
         messageLabel.text = message
         
@@ -83,7 +87,7 @@ public class MessageDecoration: UIView {
     
     private func calculateSizeThatFits(size: CGSize, applyLayout: Bool) -> CGSize{
         
-        let insets = UIEdgeInsetsMake(0, 25, 0, 25)
+        let insets = UIEdgeInsetsMake(0, size.width / 6, 0, size.width / 6)
         let maxWidth = size.width - (insets.left + insets.right)
         let buttonHeight: CGFloat = 32
         let padding: CGFloat = 20
@@ -106,13 +110,19 @@ public class MessageDecoration: UIView {
             
             yPosition += padding + titleSize.height
             button.sizeToFit()
-            button.bounds = CGRectMake(0, 0, min(button.bounds.size.width, size.width), buttonHeight)
+            button.bounds = CGRectMake(0, 0, min(button.bounds.size.width, maxWidth), buttonHeight)
             button.center = CGPointMake(size.width / 2, yPosition + (buttonHeight/2))
             button.layer.cornerRadius = 6
         }
         
         return CGSizeMake(size.width, totalHeight)
         
+    }
+    
+    @objc private func buttonTapped(sender: AnyObject) {
+        if let tapHandler = self.buttonTapHandler {
+            tapHandler()
+        }
     }
     
 }
