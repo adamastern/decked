@@ -10,11 +10,11 @@ import UIKit
 
 public class DecorationManager {
     
-    weak var decoration: ManagedDecoration?
-    internal let onDismiss: (manager: DecorationManager, animated: Bool) -> Void
+    weak public var decoration: ManagedDecoration?
+    public var presented = false
     internal let dismissAfter: NSTimeInterval
-    internal var dismissalTimer: NSTimer?
-    internal var presented = false
+    private let onDismiss: (manager: DecorationManager, animated: Bool) -> Void
+    private var dismissalTimer: NSTimer?
     
     internal init(decoration: ManagedDecoration, dismissAfter: NSTimeInterval, onDismiss: (manager: DecorationManager, animated: Bool) -> Void) {
         self.decoration = decoration
@@ -26,7 +26,7 @@ public class DecorationManager {
         cancelDismissalTimer()
     }
     
-    func dismiss(animated: Bool) {
+    public func dismiss(animated: Bool) {
         onDismiss(manager: self, animated: animated)
     }
     

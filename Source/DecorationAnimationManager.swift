@@ -10,7 +10,7 @@ import UIKit
 
 public protocol DecorationAnimationManager {
 
-    //enter
+    //entrance
     func decorationWillAppear(decoration: ManagedDecoration, inQueue queue: DecorationQueue)
     func decorationDidAppear(decoration: ManagedDecoration, inQueue queue: DecorationQueue)
     

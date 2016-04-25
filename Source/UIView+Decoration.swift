@@ -9,7 +9,9 @@
 import UIKit
 
 extension UIView: Decoration {
+    
     public func decorationView() -> UIView {
         return self
     }
+    
 }

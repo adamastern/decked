@@ -24,6 +24,7 @@
 		E5B9152A1CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915291CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift */; };
 		E5B9152D1CCDA58400FEDF8E /* DecoratedStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */; };
 		E5B915331CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */; };
+		E5B915351CCDFC9200FEDF8E /* DecorationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B915341CCDFC9200FEDF8E /* DecorationConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E5B915291CCD7C8000FEDF8E /* LayoutNotificationViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutNotificationViewTests.swift; sourceTree = "<group>"; };
 		E5B9152C1CCDA58400FEDF8E /* DecoratedStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoratedStateProvider.swift; sourceTree = "<group>"; };
 		E5B915321CCDA6DB00FEDF8E /* UIViewController+DecoratedStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DecoratedStateProvider.swift"; sourceTree = "<group>"; };
+		E5B915341CCDFC9200FEDF8E /* DecorationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorationConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E5B9152E1CCDA58F00FEDF8E /* Decoration */,
 				E5B9152F1CCDA59500FEDF8E /* Decorated */,
 				E5B915301CCDA5C500FEDF8E /* State Provider */,
+				E5B915361CCDFCB900FEDF8E /* Views */,
 				E5B915311CCDA5D500FEDF8E /* Helpers */,
 				E523CB641CCC3D1400331590 /* Info.plist */,
 			);
@@ -124,10 +127,10 @@
 			children = (
 				E58966B51CCCA5EA0000EF72 /* Decoration.swift */,
 				E58966B91CCCA5EA0000EF72 /* ManagedDecoration.swift */,
+				E58966B61CCCA5EA0000EF72 /* DecorationAnimationManager.swift */,
+				E5B915341CCDFC9200FEDF8E /* DecorationConfiguration.swift */,
 				E58966B71CCCA5EA0000EF72 /* DecorationManager.swift */,
 				E58966BC1CCCA5EA0000EF72 /* UIView+Decoration.swift */,
-				E58966B31CCCA5EA0000EF72 /* BannerDecoration.swift */,
-				E58966B61CCCA5EA0000EF72 /* DecorationAnimationManager.swift */,
 			);
 			name = Decoration;
 			sourceTree = "<group>";
@@ -158,6 +161,14 @@
 				E58966B81CCCA5EA0000EF72 /* LayoutNotificationView.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E5B915361CCDFCB900FEDF8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E58966B31CCCA5EA0000EF72 /* BannerDecoration.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 				E58966C71CCCA5EA0000EF72 /* UIView+Decoration.swift in Sources */,
 				E58966BE1CCCA5EA0000EF72 /* BannerDecoration.swift in Sources */,
 				E58966BF1CCCA5EA0000EF72 /* Decorated.swift in Sources */,
+				E5B915351CCDFC9200FEDF8E /* DecorationConfiguration.swift in Sources */,
 				E58966C51CCCA5EA0000EF72 /* UIScrollView+Decorated.swift in Sources */,
 				E58966C01CCCA5EA0000EF72 /* Decoration.swift in Sources */,
 				E58966C21CCCA5EA0000EF72 /* DecorationManager.swift in Sources */,

@@ -8,14 +8,13 @@
 
 import UIKit
 
-
 public protocol DecoratedStateProvider: class {
     
     associatedtype StateType
     
     func providesForDecorated() -> Decorated
     
-    func configureDecorationsForState(state: StateType) -> (top: Decoration?, center: Decoration?, bottom: Decoration?)
+    func configureDecorationsForState(state: StateType) -> (top: DecorationConfiguration?, center: DecorationConfiguration?, bottom: DecorationConfiguration?)
     
     func setDecorationState(state: StateType)
     
@@ -27,19 +26,19 @@ extension DecoratedStateProvider{
         let states = self.configureDecorationsForState(state)
         let decorated = self.providesForDecorated()
         if let top = states.top {
-            decorated.addDecoration(top, atPosition: .Top)
+            decorated.addDecoration(top.decoration, atPosition: .Top, insets: top.insets)
         } else {
             decorated.removeDecorationAtPosition(.Top)
         }
         
         if let center = states.center {
-            decorated.addDecoration(center, atPosition: .Center)
+            decorated.addDecoration(center.decoration, atPosition: .Center, insets: center.insets)
         } else {
             decorated.removeDecorationAtPosition(.Center)
         }
         
         if let bottom = states.bottom {
-            decorated.addDecoration(bottom, atPosition: .Bottom)
+            decorated.addDecoration(bottom.decoration, atPosition: .Bottom, insets: bottom.insets)
         } else {
             decorated.removeDecorationAtPosition(.Bottom)
         }

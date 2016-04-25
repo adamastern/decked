@@ -20,19 +20,20 @@ public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationMan
     
     public var manager: DecorationManager?
     
-    var style: BannerNotificationStyle!{
+    public var style: BannerNotificationStyle!{
         didSet{
             configureForStyle()
         }
     }
     
-    var title: String?{
+    public var title: String?{
         didSet{
             label.text = title
             layoutSubviews()
         }
     }
-    var font: UIFont?{
+    
+    public var font: UIFont?{
         didSet{
             label.font = font
             layoutSubviews()
@@ -93,7 +94,7 @@ public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationMan
         dismissButton.center = CGPointMake(bounds.size.width - (horizontalInset / 2), bounds.size.height/2)
     }
     
-    func configureForStyle() {
+    private func configureForStyle() {
         
         var backgroundColor: UIColor
         var tintColor: UIColor
@@ -122,6 +123,21 @@ public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationMan
         label.textColor = tintColor
         dismissButton.tintColor = tintColor
         
+    }
+    
+    // MARK - interaction
+    
+    @objc private func dismissButtonPressed() {
+        self.manager?.dismiss(true)
+    }
+    
+    @objc private func handleTap(sender: UITapGestureRecognizer){
+        if let handler = self.tapHandler {
+            if handler() {
+                self.manager?.dismiss(true)
+            }
+            
+        }
     }
     
     // MARK - decoration
@@ -159,19 +175,6 @@ public class BannerDecoration: UIView, ManagedDecoration, DecorationAnimationMan
             }
         }) { (finished) in
             completion()
-        }
-    }
-    
-    @objc private func dismissButtonPressed() {
-        self.manager?.dismiss(true)
-    }
-    
-    @objc private func handleTap(sender: UITapGestureRecognizer){
-        if let handler = self.tapHandler {
-            if handler() {
-                self.manager?.dismiss(true)
-            }
-            
         }
     }
     
