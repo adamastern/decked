@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.name         = "Decked"
   s.version      = "1.0.2"
   s.summary      = "accessorize your UI"
-  s.homepage     = "https://basememara.com"
+  s.homepage     = "https://github.com/adamastern/decked"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Adam Stern" => "stern.adam1@gmail.com" }
   s.platform     = :ios, "8.0"
