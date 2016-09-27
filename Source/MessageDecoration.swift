@@ -133,33 +133,33 @@ private extension UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.mainScreen().scale)
         let ctx = UIGraphicsGetCurrentContext()
-        CGContextSaveGState(ctx)
+        CGContextSaveGState(ctx!)
         
-        CGContextSetStrokeColorWithColor(ctx, UIColor.lightGrayColor().CGColor)
-        CGContextSetLineWidth(ctx, 4.0)
-        CGContextSetLineCap(ctx, .Round)
+        CGContextSetStrokeColorWithColor(ctx!, UIColor.lightGrayColor().CGColor)
+        CGContextSetLineWidth(ctx!, 4.0)
+        CGContextSetLineCap(ctx!, .Round)
         
         let inset = size.width * 0.33
-        CGContextMoveToPoint(ctx, inset, inset)
-        CGContextAddLineToPoint(ctx, size.width - inset, size.height - inset)
-        CGContextMoveToPoint(ctx, size.width - inset , inset)
-        CGContextAddLineToPoint(ctx, inset, size.height - inset)
-        CGContextStrokePath(ctx)
+        CGContextMoveToPoint(ctx!, inset, inset)
+        CGContextAddLineToPoint(ctx!, size.width - inset, size.height - inset)
+        CGContextMoveToPoint(ctx!, size.width - inset , inset)
+        CGContextAddLineToPoint(ctx!, inset, size.height - inset)
+        CGContextStrokePath(ctx!)
         
-        CGContextAddArc(ctx,
+        CGContextAddArc(ctx!,
                         size.width/2, size.height/2,
                         (size.width - 8) / 2,
                         0,
                         6.28319,
                         1)
-        CGContextStrokePath(ctx)
+        CGContextStrokePath(ctx!)
         
         
-        CGContextRestoreGState(ctx)
+        CGContextRestoreGState(ctx!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return img
+        return img!
         
     }
     

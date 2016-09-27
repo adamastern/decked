@@ -189,24 +189,24 @@ private extension UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.mainScreen().scale)
         let ctx = UIGraphicsGetCurrentContext()
-        CGContextSaveGState(ctx)
+        CGContextSaveGState(ctx!)
         
-        CGContextSetStrokeColorWithColor(ctx, UIColor.whiteColor().CGColor)
-        CGContextSetLineWidth(ctx, 2.0)
-        CGContextSetLineCap(ctx, .Butt)
+        CGContextSetStrokeColorWithColor(ctx!, UIColor.whiteColor().CGColor)
+        CGContextSetLineWidth(ctx!, 2.0)
+        CGContextSetLineCap(ctx!, .Butt)
         
-        CGContextMoveToPoint(ctx, 0, 0)
-        CGContextAddLineToPoint(ctx, size.width, size.height)
-        CGContextMoveToPoint(ctx, size.width, 0)
-        CGContextAddLineToPoint(ctx, 0, size.height)
-        CGContextStrokePath(ctx)
+        CGContextMoveToPoint(ctx!, 0, 0)
+        CGContextAddLineToPoint(ctx!, size.width, size.height)
+        CGContextMoveToPoint(ctx!, size.width, 0)
+        CGContextAddLineToPoint(ctx!, 0, size.height)
+        CGContextStrokePath(ctx!)
         
         
-        CGContextRestoreGState(ctx)
+        CGContextRestoreGState(ctx!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return img
+        return img!
         
     }
     
